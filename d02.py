@@ -2,6 +2,7 @@ points_from_shape = {
     "A": 1, #rock
     "B": 2, #paper
     "C": 3, #scissors
+
     "X": 1, #rock
     "Y": 2, #paper
     "Z": 3  #scissors
@@ -13,22 +14,15 @@ def d02_p1(input):
     for game in games:
         oponents_shape, my_shape = game.split(' ')
         oponents_points = points_from_shape[oponents_shape]
-        my_points = points_from_shape[my_shape]
-        
+        my_points = points_from_shape[my_shape]        
         if my_points > oponents_points:
             game_outcome_points = 6
         elif my_points == oponents_points:
             game_outcome_points = 3
         else:
             game_outcome_points = 0
-        game_score = game_outcome_points + my_points
-        print(game)
-        print(oponents_points, my_points)
-        print(game_outcome_points)
-        print(game_score)
-        
+        game_score = game_outcome_points + my_points     
         predicted_score += game_score
-        print(predicted_score)
     return predicted_score
 
 
