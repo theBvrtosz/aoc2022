@@ -24,14 +24,9 @@ class Day4(Day):
             section1, section2 = pair.split(',')
             section1_start, section1_end = map(int, section1.split('-'))
             section2_start, section2_end = map(int, section2.split('-'))
-            overlapping_indexes = list(range(
-                    max(section1_start, section2_start), 
-                    min(section1_end, section2_end)+1
-                    ))
-            if overlapping_indexes:
+            if not (section2_start > section1_end or section1_start > section2_end):
                 overlapped_sections += 1
         return overlapped_sections
-
 
 if __name__ == '__main__':
     day4 = Day4() 
