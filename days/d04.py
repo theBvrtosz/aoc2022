@@ -17,10 +17,27 @@ class Day4(Day):
                 # section 2 fully contains section 1
                 fully_contained_sections += 1
         return fully_contained_sections
+    
+    def part2(self):
+        overlapped_sections = 0
+        for pair in self.input_lines:
+            section1, section2 = pair.split(',')
+            section1_start, section1_end = map(int, section1.split('-'))
+            section2_start, section2_end = map(int, section2.split('-'))
+            overlapping_indexes = list(range(
+                    max(section1_start, section2_start), 
+                    min(section1_end, section2_end)+1
+                    ))
+            if overlapping_indexes:
+                overlapped_sections += 1
+        return overlapped_sections
 
 
 if __name__ == '__main__':
     day4 = Day4() 
     day4_part1_solution = day4.part1()
     print(day4_part1_solution)
+    day4_part2_solution = day4.part2()
+    print(day4_part2_solution)
+
     
