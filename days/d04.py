@@ -8,20 +8,14 @@ class Day4(Day):
         fully_contained_sections = 0
         for pair in self.input_lines:
             section1, section2 = pair.split(',')
-            section1_start, section1_end = section1.split('-')
-            section2_start, section2_end = section2.split('-')
+            section1_start, section1_end = map(int, section1.split('-'))
+            section2_start, section2_end = map(int, section2.split('-'))
             if section1_start <= section2_start and section1_end >= section2_end:
                 # section 1 fully contains section 2
                 fully_contained_sections += 1
-                print('section 1 fully contains section 2')
-                print(pair)
-                print('-'*50)
             elif section2_start <= section1_start and section2_end >= section1_end:
                 # section 2 fully contains section 1
                 fully_contained_sections += 1
-                print('section 2 fully contains section 1')
-                print(pair)
-                print('-'*50)
         return fully_contained_sections
 
 
